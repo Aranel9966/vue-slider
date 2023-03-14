@@ -7,7 +7,7 @@ Bonus:
 3-quando il mouse va in hover sullo slider, bloccare l'autoplay e farlo riprendere quando esce
 */
 
-console.log(slides);
+// console.log(slides);
 
 const { createApp } = Vue
 
@@ -16,7 +16,7 @@ const { createApp } = Vue
       return {
         slides : [
             {
-            image: 'img/01.webp',
+                image: 'img/01.webp',
                 title: 'Marvel\'s Spiderman Miles Morale',
                 text: 'Experience the rise of Miles Morales as the new hero masters incredible, explosive new powers to become his own Spider-Man.',
             }, {
@@ -36,12 +36,36 @@ const { createApp } = Vue
                 title: "Marvel's Avengers",
                 text: 'Marvel\'s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.',
             }
-        ]
+        ],
+
+        indexImg:0,
+        
+
+
         
       }
     },
     methods: {
-       
+       prevImg(){
+        if(this.indexImg <= 0){
+            
+            this.indexImg = this.slides.length-1
+        }else{
+            this.indexImg--
+
+        }
+       },
+
+       nextImg(){
+        if(this.indexImg >= this.slides.length-1){
+
+            this.indexImg = 0
+        }else{
+
+            this.indexImg++
+        }
+       },
 
     },
   }).mount('#app')
+  
