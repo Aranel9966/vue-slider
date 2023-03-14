@@ -39,10 +39,8 @@ const { createApp } = Vue
         ],
 
         indexImg:0,
-        
-
-
-        
+        index:0,
+   
       }
     },
     methods: {
@@ -64,6 +62,10 @@ const { createApp } = Vue
 
             this.indexImg++
         }
+       },
+
+       indexSrc(index){
+        this.indexImg=index
        },
 
     },

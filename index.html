@@ -30,10 +30,10 @@
                 <div class="thumbs">
 
                     <div @click="prevImg" class="prev"></div>
-                    <div @click="nextImg"class="next"></div>
+                    <div @click="nextImg" class="next"></div>
 
-                    <div v-for="(thumb,index) in slides" :class=" index == indexImg ? 'active' : '' " class="thumb">
-                        <img :src= "thumb.image" alt="img MCU" />
+                    <div @click="indexSrc(index)" v-for="(thumb,index) in slides" :class=" index == indexImg ? 'active' : '' " class="thumb" >
+                        <img  :src= "thumb.image" alt="img MCU" />
                     </div>
             </div>
         </div>
