@@ -39,11 +39,11 @@ const { createApp } = Vue
         ],
 
         indexImg:0,
-        index:0,
-   
+        interval:0,
       }
     },
     methods: {
+       //funzione per scorrere tra le immagini dell'ogetto
        prevImg(){
         if(this.indexImg <= 0){
             
@@ -53,7 +53,7 @@ const { createApp } = Vue
 
         }
        },
-
+       //funzione per scorrere tra le immagini dell'ogetto
        nextImg(){
         if(this.indexImg >= this.slides.length-1){
 
@@ -63,11 +63,27 @@ const { createApp } = Vue
             this.indexImg++
         }
        },
-
+       //funzione che accomuna l'indice del'evento con quello del for
        indexSrc(index){
         this.indexImg=index
        },
 
+        
     },
+    // mounted serve per poter avviare delle funzioni subito dopo il caricamento della pagina 
+    mounted() {
+        //arrow function di setinterval per generare un loop 
+        setInterval(() => {
+           if(this.indexImg < this.slides.length-1){    
+               this.indexImg++
+    
+           }else{
+               this.indexImg=0    
+           }
+           
+         }, 4000)
+        
+    }
+    
   }).mount('#app')
   

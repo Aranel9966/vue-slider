@@ -33,7 +33,7 @@
                     <div @click="nextImg" class="next"></div>
 
                     <div @click="indexSrc(index)" v-for="(thumb,index) in slides" :class=" index == indexImg ? 'active' : '' " class="thumb" >
-                        <img  :src= "thumb.image" alt="img MCU" />
+                        <img :src= "thumb.image" alt="img MCU" />
                     </div>
             </div>
         </div>
