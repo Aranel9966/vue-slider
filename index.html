@@ -14,8 +14,9 @@
 
     
     <div id="app">
-        <div class="container">
-            <div class="slider-wrapper" tabindex="0">
+        <div class="container" >
+            <!-- mouseleave mouseenter sono degli eventi che si attivano al passaggio del cursore -->
+            <div @:mouseleave="start" @:mouseenter="stop" class="slider-wrapper" tabindex="0"  >
 
                 <div class="item">
                     <img :src="slides[indexImg].image" alt="Spiderman" />
@@ -35,6 +36,7 @@
                     <div @click="indexSrc(index)" v-for="(thumb,index) in slides" :class=" index == indexImg ? 'active' : '' " class="thumb" >
                         <img :src= "thumb.image" alt="img MCU" />
                     </div>
+                </div>
             </div>
         </div>
 

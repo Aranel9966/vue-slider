@@ -39,7 +39,7 @@ const { createApp } = Vue
         ],
 
         indexImg:0,
-        interval:0,
+        // interval:0,
       }
     },
     methods: {
@@ -67,13 +67,28 @@ const { createApp } = Vue
        indexSrc(index){
         this.indexImg=index
        },
-
+       //funzione che blocca il loop quando si è al dispopra dello slider 
+        stop(){            
+            clearInterval(loop)
+        },
+        // funzione che avvia il loop fuori dallo slider
+        start(){    
+            loop=setInterval(() => {
+                if(this.indexImg < this.slides.length-1){    
+                    this.indexImg++
+         
+                }else{
+                    this.indexImg=0    
+                }
+                
+              }, 3000)
+        }
         
     },
     // mounted serve per poter avviare delle funzioni subito dopo il caricamento della pagina 
     mounted() {
         //arrow function di setinterval per generare un loop 
-        setInterval(() => {
+        loop=setInterval(() => {
            if(this.indexImg < this.slides.length-1){    
                this.indexImg++
     
@@ -81,7 +96,7 @@ const { createApp } = Vue
                this.indexImg=0    
            }
            
-         }, 4000)
+         }, 3000)
         
     }
     
