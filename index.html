@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 
 <head>
     <meta charset="UTF-8" />
@@ -15,11 +15,11 @@
     
     <div id="app">
         <div class="container" >
-            <!-- mouseleave mouseenter sono degli eventi che si attivano al passaggio del cursore -->
-            <div @:mouseleave="start" @:mouseenter="stop" class="slider-wrapper" tabindex="0"  >
+            <!-- mouseleave mouseover sono degli eventi che si attivano al passaggio del cursore -->
+            <div @:mouseleave="start" @:mouseover="stop" class="slider-wrapper" tabindex="0"  >
 
                 <div class="item">
-                    <img :src="slides[indexImg].image" alt="Spiderman" />
+                    <img :src="slides[indexImg].image" :alt="slides[indexImg].title" />
                     <div class="text">
                         <h3>{{slides[indexImg].title}} </h3>
                         <p>
@@ -34,7 +34,7 @@
                     <div @click="nextImg" class="next"></div>
 
                     <div @click="indexSrc(index)" v-for="(thumb,index) in slides" :class=" index == indexImg ? 'active' : '' " class="thumb" >
-                        <img :src= "thumb.image" alt="img MCU" />
+                        <img :src= "thumb.image" :alt="index" />
                     </div>
                 </div>
             </div>
